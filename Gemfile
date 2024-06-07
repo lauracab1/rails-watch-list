@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "ffi", "=1.16.3"
 ruby "3.1.2"
 
+gem "dotenv-rails"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
