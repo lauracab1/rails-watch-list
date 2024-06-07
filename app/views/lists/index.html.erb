@@ -1,24 +1,23 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZW1hfGVufDB8fDB8fHww');">
+<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZW1hfGVufDB8fDB8fHww');">
   <div class="container">
     <h1>Categories</h1>
   </div>
-</div>
+</div> %>
 
 <div class="container">
   <div class="row my-5">
-    <div class="col-12">
-      <div class="d-flex justify-content-between">
-        <h2>My lists</h2>
-        <%= link_to "Add a movie list", new_list_path, class:"btn btn-info" %>
-      </div>
-      <div class="categories-list pt-4 pb-4">
+    <div class="col-6">
+        <h1>What you want to watch?</h1>
+      <div class="categories-list pt-4 pb-4" data-controller="display">
         <% @lists.each do |list| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= list.image_url %>');">
-          <h3><%= link_to list.name, list_path(list) %></h2>
-        </div>
+          <%= link_to list_path(list) do %>
+            <div class="card-category" data-display-target="card" data-action="mouseover->display#show" style="background-image: url('<%= list.image_url %>');">
+              <h2 class= "d-none" data-display-target="name"><%=list.name %></h2>
+            </div>
+          <% end %>
         <% end %>
       </div>
-
+      <%= link_to "Add a movie list", new_list_path, class:"btn btn-info" %>
     </div>
   </div>
 </div>
