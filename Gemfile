@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "ffi", "=1.16.3"
 ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
